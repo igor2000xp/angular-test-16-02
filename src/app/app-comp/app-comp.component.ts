@@ -9,6 +9,7 @@ import { ChangeDetectionStrategy, ChangeDetectorRef, Component, DoCheck, Input, 
 export class AppCompComponent implements OnChanges {
   @Input() o: { id: number; name: string, d: { a: number[] } } = { id: 0, name: '', d: { a: [0] } };
   id = 0;
+  o2 = { id: 0, name: '000' };
 
   constructor(private cdr: ChangeDetectorRef) { }
 
