@@ -1,12 +1,13 @@
-import { ChangeDetectorRef, Component, DoCheck, Input, OnChanges, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, DoCheck, Input, OnChanges, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-comp',
   templateUrl: './app-comp.component.html',
-  styleUrls: ['./app-comp.component.scss']
+  styleUrls: ['./app-comp.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class AppCompComponent implements DoCheck, OnChanges {
-  @Input() o: { id: number; name: string } = { id: 0, name: '' };
+export class AppCompComponent implements OnChanges {
+  @Input() o: { id: number; name: string, d: { a: number[] } } = { id: 0, name: '', d: { a: [0] } };
   id = 0;
 
   constructor(private cdr: ChangeDetectorRef) { }
@@ -22,8 +23,5 @@ export class AppCompComponent implements DoCheck, OnChanges {
       this.cdr.detectChanges();
     }
   }
-
-
-
 
 }
