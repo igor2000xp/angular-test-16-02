@@ -8,7 +8,8 @@ import { ChangeDetectionStrategy, ChangeDetectorRef, Component, DoCheck, Input, 
 })
 export class AppComp2Component implements DoCheck, OnInit {
   ooo = 1;
-  @Input() o2 = { id: 0, name: "" };
+  // @Input() 
+  o2 = { id: 0, name: "" };
 
   constructor(private cdr: ChangeDetectorRef) { }
 
