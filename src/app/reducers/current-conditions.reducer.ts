@@ -13,10 +13,18 @@ export const initialState: CurrentConditionsState = {
 
 export const reducer = createReducer(
   initialState,
-  on(CurrentConditionsActions['[CurConditions]Get-CurrentConditions'], (state, payload) => {
+  // on(CurrentConditionsActions['[CurConditions]Get-CurrentConditions'], (state, payload) => {
+  on(CurrentConditionsActions.addCurrent, (state, payload) => {
     const cc = new Map(state.currentConditions);
     cc.set(payload.zipcode, payload.condition);
     return { ...state, currentConditions: cc };
-  })
+  }),
+  on(CurrentConditionsActions.addCurrentFailure, (state, payload) => {
+    console.log(payload.error.toString());
+    return { ...state };
+  }),
+  // on(CurrentConditionsActions.addAll, (state) => {
+  //   return { ...state };
+  // })
 );
 

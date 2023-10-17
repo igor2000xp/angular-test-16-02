@@ -13,14 +13,14 @@ export const initialState: ZipcodesState = {
 
 export const zipcodeReducer = createReducer(
   initialState,
-  on(ZipcodeActions['[ZIP]Get-all-Zipcodes'], (state) => {
+  on(ZipcodeActions.zipGetAll, (state) => {
     return { ...state };
   }),
-  on(ZipcodeActions['[ZIP]Add-Zipcodes'], (state, payload) => {
-    return { ...state, zipcodes: [payload.payload, ...state.zipcodes] };
+  on(ZipcodeActions.zipAdd, (state, payload) => {
+    return { ...state, zipcodes: [payload.zipcode, ...state.zipcodes] };
   }),
-  on(ZipcodeActions['[ZIP]Delete-Zipcodes'], (state, payload) => {
-    return { ...state, zipcodes: state.zipcodes.filter((item) => item !== payload.payload) }
+  on(ZipcodeActions.zipDelete, (state, payload) => {
+    return { ...state, zipcodes: state.zipcodes.filter((item) => item !== payload.zipcode) }
   })
 );
 

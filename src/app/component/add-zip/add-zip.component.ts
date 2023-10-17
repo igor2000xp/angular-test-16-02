@@ -20,6 +20,6 @@ export class AddZipComponent implements OnInit {
   }
 
   addZip(zipcode: string) {
-    this.store.dispatch(ZipcodeActions['[ZIP]Add-Zipcodes']({ payload: zipcode }));
+    this.store.dispatch(ZipcodeActions.zipAdd({ zipcode }));
   }
 }
