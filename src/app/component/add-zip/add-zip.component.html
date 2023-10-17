@@ -1,0 +1,17 @@
+<div>
+  <div>
+    <div>
+      <input type="text" #zipcode placeholder="Add ZIP, please">
+    </div>
+    <div>
+      <button btn btn-primery (click)="addZip(zipcode.value)">Add ZIP</button>
+    </div>
+  </div>
+  <div>
+    <ul>
+      <li *ngFor="let zip of zipcodes">
+        {{zip}}
+      </li>
+    </ul>
+  </div>
+</div>
