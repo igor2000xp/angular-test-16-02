@@ -7,6 +7,9 @@ import { StoreModule } from '@ngrx/store';
 import { reducers, metaReducers } from './reducers';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { AddZipComponent } from './component/add-zip/add-zip.component';
+import { EffectsModule } from '@ngrx/effects';
+// import { CurrentConditionsEffects } from './effects/current-conditions.effects';
+// import { WeatherService } from './weather.service';
 
 @NgModule({
   declarations: [AppComponent, AddZipComponent],
@@ -18,7 +21,8 @@ import { AddZipComponent } from './component/add-zip/add-zip.component';
     StoreDevtoolsModule.instrument({
       maxAge: 25,
       logOnly: isDevMode(),
-    })
+    }),
+    // EffectsModule.forFeature([CurrentConditionsEffects])
   ],
   providers: [],
   bootstrap: [AppComponent],

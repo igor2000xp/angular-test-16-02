@@ -17,7 +17,6 @@ export const zipcodeReducer = createReducer(
     return { ...state };
   }),
   on(ZipcodeActions['[ZIP]Add-Zipcodes'], (state, payload) => {
-    console.log('ZipcodeActions Add');
     return { ...state, zipcodes: [payload.payload, ...state.zipcodes] };
   }),
   on(ZipcodeActions['[ZIP]Delete-Zipcodes'], (state, payload) => {
