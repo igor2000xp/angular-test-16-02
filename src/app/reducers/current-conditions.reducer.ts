@@ -11,9 +11,8 @@ export const initialState: CurrentConditionsState = {
   currentConditions: new Map<string, any>(),
 };
 
-export const reducer = createReducer(
+export const currentConditionalsReducer = createReducer(
   initialState,
-  // on(CurrentConditionsActions['[CurConditions]Get-CurrentConditions'], (state, payload) => {
   on(CurrentConditionsActions.addCurrent, (state, payload) => {
     const cc = new Map(state.currentConditions);
     cc.set(payload.zipcode, payload.condition);
@@ -23,8 +22,5 @@ export const reducer = createReducer(
     console.log(payload.error.toString());
     return { ...state };
   }),
-  // on(CurrentConditionsActions.addAll, (state) => {
-  //   return { ...state };
-  // })
 );
 
